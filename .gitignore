@@ -1,6 +1,5 @@
 .venv
 result.txt
-seals_best.pt
 seals.pt
 
 # VSCode

@@ -1,6 +1,6 @@
 import os
 
-from image_preparing import split_image
+from image_preparing import resize_image
 from process_image import process_image
 from seals_print import seals_print
 
@@ -13,33 +13,39 @@ def main():
 
     # Проходим циклом по всем фото
     for image_path in os.listdir("search\\photo"):
-        # Разбиваем фото на 2 части
-        split_image(image_path=f"search\\photo\\{image_path}")
-        # Разбиваем фото на 3 части
-        split_image(image_path=f"search\\photo\\{image_path}", piece=3)
-        # Разбиваем фото на 4 части
-        split_image(image_path=f"search\\photo\\{image_path}", piece=4)
+        # # Разбиваем фото на 2 части
+        # split_image(image_path=f"search\\photo\\{image_path}")
+        # # Разбиваем фото на 3 части
+        # split_image(image_path=f"search\\photo\\{image_path}", piece=3)
+        # # Разбиваем фото на 4 части
+        # split_image(image_path=f"search\\photo\\{image_path}", piece=4)
 
-        # Проходим циклом по всем фото разделённых на 2 части
-        seals_count = 0
-        for i in range(2):
-            count = process_image(f"search\\new_photo_2\part_{i+1}.jpg")
-            seals_count += count
+        # # Проходим циклом по всем фото разделённых на 2 части
+        # seals_count = 0
+        # for i in range(2):
+        #     count = process_image(f"search\\new_photo_2\part_{i+1}.jpg")
+        #     seals_count += count
 
-        # Проходим циклом по всем фото разделённых на 3 части
-        seals_count_3 = 0
-        for i in range(3):
-            count = process_image(f"search\\new_photo_3\part_{i+1}.jpg")
-            seals_count_3 += count
+        # # Проходим циклом по всем фото разделённых на 3 части
+        # seals_count_3 = 0
+        # for i in range(3):
+        #     count = process_image(f"search\\new_photo_3\part_{i+1}.jpg")
+        #     seals_count_3 += count
 
-        # Проходим циклом по всем фото разделённых на 4 части
-        seals_count_4 = 0
-        for i in range(4):
-            count = process_image(f"search\\new_photo_4\part_{i+1}.jpg")
-            seals_count_4 += count
+        # # Проходим циклом по всем фото разделённых на 4 части
+        # seals_count_4 = 0
+        # for i in range(4):
+        #     count = process_image(f"search\\new_photo_4\part_{i+1}.jpg")
+        #     seals_count_4 += count
 
-        # Сравниваем полученные результаты и выбираем максимальный
-        seals_count = max(seals_count, seals_count_3, seals_count_4)
+        # # Сравниваем полученные результаты и выбираем максимальный
+        # seals_count = max(seals_count, seals_count_3, seals_count_4)
+
+        resize_image(image_path=f"search\\photo\\{image_path}")
+
+        seals_count = process_image(
+            image_path=f"search\\new_photo_resize\\{image_path}"
+        )
 
         # Загоняем в нейросеть оригинальное фото
         count = process_image(image_path=f"search\\photo\\{image_path}")
