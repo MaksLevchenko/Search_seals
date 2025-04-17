@@ -41,6 +41,7 @@ def main():
         # # Сравниваем полученные результаты и выбираем максимальный
         # seals_count = max(seals_count, seals_count_3, seals_count_4)
 
+        # Немного уменьшаем фото
         resize_image(image_path=f"search\\photo\\{image_path}")
 
         seals_count = process_image(

@@ -40,7 +40,7 @@ from PIL import Image, ImageEnhance
 
 
 def resize_image(image_path: str, scale: float = 0.55) -> bool:
-    """"""
+    """Уменьшает исходное фото и сохраняет его в отдельной папке"""
     img = Image.open(image_path)
     width, height = img.size
     new_width = int(width * scale)
@@ -56,5 +56,6 @@ def resize_image(image_path: str, scale: float = 0.55) -> bool:
 
 
 def contrast_img(img):
+    """Немного подкручивает контраст на фото"""
     enh = ImageEnhance.Contrast(image=img)
     return enh.enhance(1.8)
