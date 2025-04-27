@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 from PIL import Image
 
-from image_preparing import contrast_img
+from image_preparing.image_preparing import contrast_img
 
 
 # Загрузка модели YOLOv8

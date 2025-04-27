@@ -34,7 +34,7 @@ from PIL import Image, ImageEnhance
 #                 part = img.crop((left, upper, right, lower))
 #                 parts.append(part)
 #     for idx, part in enumerate(parts):
-#         part.save(f"search\\new_photo_{piece}\\part_{idx+1}.jpg", "JPEG")
+#         part.save(f"media\\new_photo_{piece}\\part_{idx+1}.jpg", "JPEG")
 
 #     return True
 
@@ -50,7 +50,7 @@ def resize_image(image_path: str, scale: float = 0.55) -> bool:
     name_image = image_path.split("\\")[-1]
 
     resized_image.save(
-        f"search\\new_photo_resize\\{name_image}",
+        f"media\\new_photo_resize\\{name_image}",
     )
     return True
 
